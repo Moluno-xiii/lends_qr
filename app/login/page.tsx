@@ -5,17 +5,17 @@ import LoginImageSection from "./LoginImageSection";
 const avenir_Next = localFont({
   src: [
     {
-      path: "./fonts/AvenirNextLTPro-Regular.otf",
+      path: "./_fonts/AvenirNextLTPro-Regular.otf",
       weight: "400",
       style: "normal",
     },
     {
-      path: "./fonts/AvenirNextLTPro-It.otf",
+      path: "./_fonts/AvenirNextLTPro-It.otf",
       weight: "400",
       style: "italic",
     },
     {
-      path: "./fonts/AvenirNextLTPro-Bold.otf",
+      path: "./_fonts/AvenirNextLTPro-Bold.otf",
       weight: "700",
       style: "normal",
     },

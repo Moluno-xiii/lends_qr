@@ -17,6 +17,8 @@ const LoginImageSection: React.FC = ({}) => {
             height={400}
             width={600}
             alt="login illustration"
+            quality={100}
+            placeholder="blur"
           />
         </div>
       </div>
