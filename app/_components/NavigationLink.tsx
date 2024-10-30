@@ -10,11 +10,10 @@ interface Props {
 
 const NavigationLink: React.FC<Props> = ({ link }) => {
   const pathName = usePathname();
-  console.log(pathName);
   const isActive = pathName.includes(link.route);
   return (
     <li
-      className={`flex items-center text-base w-full px-8 flex-row h-10 hover:bg-primary hover:bg-opacity-[6%] border-primary ${
+      className={`flex items-center text-base w-full px-8 flex-row h-10 hover:bg-primary transition-all duration-300 hover:bg-opacity-[6%] border-primary ${
         isActive
           ? "border-l-[4px] text-secondary  bg-primary bg-opacity-[6%]"
           : "text-text-primary"

@@ -1,4 +1,7 @@
 import UsersData from "./UsersData";
+export const metadata = {
+  title: "User",
+};
 export interface UsersDataProps {
   name: string;
   value: number;
@@ -10,6 +13,7 @@ export interface TableDataProps {
   email: string;
   phone_number: string;
   date_joined: string;
+  user_id: number;
   status: string;
 }
 const usersData: UsersDataProps[] = [
@@ -42,6 +46,7 @@ const tableData: TableDataProps[] = [
     email: "adedeji@lendsqr.com",
     phone_number: "08078903721",
     date_joined: "May 15, 2020 10:00: AM",
+    user_id: 1,
     status: "inactive",
   },
   {
@@ -50,6 +55,7 @@ const tableData: TableDataProps[] = [
     email: "adedeji@lendsqr.com",
     phone_number: "08078903721",
     date_joined: "May 15, 2020 10:00: AM",
+    user_id: 2,
     status: "pending",
   },
   {
@@ -58,6 +64,7 @@ const tableData: TableDataProps[] = [
     email: "adedeji@lendsqr.com",
     phone_number: "08078903721",
     date_joined: "May 15, 2020 10:00: AM",
+    user_id: 3,
     status: "blacklisted",
   },
   {
@@ -66,6 +73,7 @@ const tableData: TableDataProps[] = [
     email: "adedeji@lendsqr.com",
     phone_number: "08078903721",
     date_joined: "May 15, 2020 10:00: AM",
+    user_id: 4,
     status: "pending",
   },
   {
@@ -74,6 +82,7 @@ const tableData: TableDataProps[] = [
     email: "adedeji@lendsqr.com",
     phone_number: "08078903721",
     date_joined: "May 15, 2020 10:00: AM",
+    user_id: 5,
     status: "active",
   },
   {
@@ -82,6 +91,7 @@ const tableData: TableDataProps[] = [
     email: "adedeji@lendsqr.com",
     phone_number: "08078903721",
     date_joined: "May 15, 2020 10:00: AM",
+    user_id: 6,
     status: "active",
   },
   {
@@ -90,6 +100,7 @@ const tableData: TableDataProps[] = [
     email: "adedeji@lendsqr.com",
     phone_number: "08078903721",
     date_joined: "May 15, 2020 10:00: AM",
+    user_id: 7,
     status: "blacklisted",
   },
   {
@@ -98,6 +109,7 @@ const tableData: TableDataProps[] = [
     email: "adedeji@lendsqr.com",
     phone_number: "08078903721",
     date_joined: "May 15, 2020 10:00: AM",
+    user_id: 8,
     status: "inactive",
   },
   {
@@ -106,15 +118,18 @@ const tableData: TableDataProps[] = [
     email: "adedeji@lendsqr.com",
     phone_number: "08078903721",
     date_joined: "May 15, 2020 10:00: AM",
+    user_id: 9,
     status: "inactive",
   },
 ];
 
 const Page: React.FC = () => {
   return (
-    <div className="bg-[#f7f7f7] flex flex-col p-8 gap-y-10 min-h-dvh">
-      <span className="font-medium text-2xl text-secondary ml-20">Users</span>
-      <UsersData usersData={usersData} tableData={tableData} />
+    <div className="flex flex-col p-8 min-h-dvh pb-40">
+      <div className="flex w-full gap-y-10 flex-col max-w-[1040px] mx-auto">
+        <span className=" font-medium text-2xl text-secondary">Users</span>
+        <UsersData usersData={usersData} tableData={tableData} />
+      </div>
     </div>
   );
 };

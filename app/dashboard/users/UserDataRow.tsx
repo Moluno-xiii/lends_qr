@@ -1,13 +1,36 @@
+"use client";
 import Image from "next/image";
 import { TableDataProps } from "./page";
+import { useState } from "react";
+import UsersTableModal from "./UsersTableModal";
 
 interface Props {
   data: TableDataProps;
+  index: number;
+  activeModalIndex: number;
+  setActiveModalIndex: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const UserDataRow: React.FC<Props> = ({ data }) => {
-  const { organization, username, email, phone_number, date_joined, status } =
-    data;
+const UserDataRow: React.FC<Props> = ({
+  data,
+  index,
+  activeModalIndex,
+  setActiveModalIndex,
+}) => {
+  const {
+    organization,
+    username,
+    email,
+    phone_number,
+    date_joined,
+    user_id,
+    status,
+  } = data;
+  const [openModal, setOpenModal] = useState(false);
+  const handleToggleModal = () => {
+    setOpenModal((modal_state) => !modal_state);
+    setActiveModalIndex(index);
+  };
   return (
     <ul className="border-y border-y-[#213F7D1A] border-opacity-10 grid grid-cols-[1.5fr_1fr_3fr_2fr_3fr_1.5fr_30px] gap-x-2 items-center text-center text-sm text-text-primary h-20">
       <li className="capitalize">{organization}</li>
@@ -30,13 +53,16 @@ const UserDataRow: React.FC<Props> = ({ data }) => {
       >
         {status}
       </li>
-      <li>
+      <li onClick={handleToggleModal} className="relative cursor-pointer">
         <Image
           src={"/vertical-dots.png"}
           alt="vertical dots"
           height={20}
           width={20}
         />
+        {openModal && activeModalIndex === index && (
+          <UsersTableModal user_id={String(user_id)} />
+        )}
       </li>
     </ul>
   );

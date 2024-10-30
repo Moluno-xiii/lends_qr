@@ -14,7 +14,7 @@ interface Props {
 const NavGroup: React.FC<Props> = ({ title, links }) => {
   return (
     <ul className="w-full">
-      <span className="text-base w-full px-8 font-medium text-text-primary uppercase">
+      <span className="text-base w-full p-8 font-medium text-text-primary uppercase">
         {title}
       </span>
       {links?.map((link, index) => (

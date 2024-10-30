@@ -12,6 +12,7 @@ const config: Config = {
         primary: "#39CDCC",
         secondary: "#213F7D",
         "text-primary": "#545F7D ",
+        error: "#E4033B",
       },
     },
   },

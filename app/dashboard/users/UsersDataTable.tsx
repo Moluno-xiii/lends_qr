@@ -1,6 +1,8 @@
+"use client";
 import Image from "next/image";
 import { TableDataProps } from "./page";
 import UserDataRow from "./UserDataRow";
+import { useState } from "react";
 
 const dataTableTitles = [
   {
@@ -27,6 +29,7 @@ interface Props {
 }
 
 const UsersDataTable: React.FC<Props> = ({ tableData }) => {
+  const [activeModalIndex, setActiveModalIndex] = useState<number>(-1);
   return (
     <>
       <div className="rounded-md shadow-sm bg-white px-4">
@@ -50,7 +53,13 @@ const UsersDataTable: React.FC<Props> = ({ tableData }) => {
         </ul>
         <div className=" flex flex-col">
           {tableData.map((data, index) => (
-            <UserDataRow key={index} data={data} />
+            <UserDataRow
+              key={index}
+              activeModalIndex={activeModalIndex}
+              setActiveModalIndex={setActiveModalIndex}
+              index={index}
+              data={data}
+            />
           ))}
         </div>
       </div>

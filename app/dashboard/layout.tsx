@@ -10,7 +10,7 @@ const workSans = Work_Sans({
 
 export const metadata: Metadata = {
   title: {
-    template: "%s | LendsQR",
+    template: "%s | Dashboard | LendsQR",
     default: "Dashboard | LendsQr",
   },
   description: "LendsQR",
@@ -23,11 +23,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${workSans.className} min-h-dvh w-dvw`}>
+      <body className={`${workSans.className} min-h-dvh w-dvw overflow-hidden`}>
         <Header />
-        <div className="grid grid-cols-[290px_1fr]">
-          <Navbar />
-          <div>{children}</div>
+        <div className="grid grid-cols-[290px_1fr] h-screen overflow-hidden">
+          <div className="overflow-y-auto h-full">
+            <Navbar />
+          </div>
+          <div className="overflow-y-auto bg-[#f7f7f7]">{children}</div>
         </div>
       </body>
     </html>
