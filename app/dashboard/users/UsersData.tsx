@@ -1,21 +1,17 @@
-import DataCard from "@/app/_components/DataCard";
-import { TableDataProps, UsersDataProps } from "./page";
 import UsersDataTable from "./UsersDataTable";
+import { Suspense } from "react";
+import Spinner from "@/app/_components/Spinner";
+import { getUsersData } from "@/app/_lib/data-fetch";
 
-interface Props {
-  usersData: UsersDataProps[];
-  tableData: TableDataProps[];
-}
+export const revalidate = 36800;
+const UsersData: React.FC = async ({}) => {
+  const tableData = await getUsersData();
 
-const UsersData: React.FC<Props> = ({ usersData, tableData }) => {
   return (
     <div className="flex flex-col gap-y-8 items-center justify-center">
-      <ul className="grid grid-cols-1 gap-12 sm:grid-cols-2 xl:grid-cols-4">
-        {usersData.map((data, index) => (
-          <DataCard data={data} key={index} />
-        ))}
-      </ul>
-      <UsersDataTable tableData={tableData} />
+      <Suspense fallback={<Spinner message="Loading Users Data" />}>
+        <UsersDataTable tableData={tableData} />
+      </Suspense>
     </div>
   );
 };

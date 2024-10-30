@@ -65,6 +65,13 @@ const UsersDataTable: React.FC<Props> = ({ tableData }) => {
       </div>
       <div className="flex justify-between items-center w-full">
         <span className="text-sm">Showing 100 out of 100</span>
+        <div className="cursor-pointer gap-x-3 flex flex-row">
+          <span>1</span>
+          <span>2</span>
+          <span>3</span>
+          <button>next</button>
+          <button>prev</button>
+        </div>
         <Image
           src={"/pagination-image.png"}
           height={24}

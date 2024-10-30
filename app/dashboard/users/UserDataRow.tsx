@@ -18,13 +18,13 @@ const UserDataRow: React.FC<Props> = ({
   setActiveModalIndex,
 }) => {
   const {
-    organization,
-    username,
-    email,
-    phone_number,
-    date_joined,
-    user_id,
-    status,
+    F: date_joined,
+    G: status,
+    H: organization,
+    fullName: username,
+    id: user_id,
+    col1: phone_number,
+    col2: email,
   } = data;
   const [openModal, setOpenModal] = useState(false);
   const handleToggleModal = () => {

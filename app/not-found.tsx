@@ -8,7 +8,7 @@ function NotFound() {
       </h1>
       <Link
         href="/dashboard/users"
-        className="inline-block bg-primary text-primary-800 px-6 py-3 text-lg"
+        className="inline-block bg-primary hover:bg-white hover:shadow-md hover:text-primary transition-all duration-300 text-primary-800 px-6 py-3 text-lg"
       >
         Go back home
       </Link>

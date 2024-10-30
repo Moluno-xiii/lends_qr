@@ -19,7 +19,9 @@ const NavigateBack: React.FC<Props> = ({ children }) => {
         height={10}
         width={27}
       />
-      <span className="text-base text-text-primary">{children}</span>
+      <span className="text-base text-text-primary hover:text-primary transition-all duration-300">
+        {children}
+      </span>
     </button>
   );
 };
