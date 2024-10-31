@@ -25,11 +25,13 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${workSans.className} min-h-dvh w-dvw overflow-hidden`}>
         <Header />
-        <div className="grid grid-cols-[290px_1fr] h-screen overflow-hidden">
-          <div className="overflow-y-auto h-full">
+        <div className="grid lg:grid-cols-[290px_1fr] h-screen">
+          <div className="hidden lg:flex overflow-y-auto h-full">
             <Navbar />
           </div>
-          <div className="overflow-y-auto bg-[#f7f7f7]">{children}</div>
+          <div className="overflow-y-auto overflow-x-auto bg-[#f7f7f7]">
+            {children}
+          </div>
         </div>
       </body>
     </html>

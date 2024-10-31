@@ -3,7 +3,7 @@ import { Suspense } from "react";
 import Spinner from "@/app/_components/Spinner";
 import { getUsersData } from "@/app/_lib/data-fetch";
 
-export const revalidate = 36800;
+// export const revalidate = 0;
 const UsersData: React.FC = async ({}) => {
   const tableData = await getUsersData();
 
@@ -15,5 +15,5 @@ const UsersData: React.FC = async ({}) => {
     </div>
   );
 };
-
+// eshegware
 export default UsersData;

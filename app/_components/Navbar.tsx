@@ -111,27 +111,25 @@ const settings_links = [
 
 const Navbar: React.FC = ({}) => {
   return (
-    <>
-      <nav className="w-[283px] flex flex-col gap-y-5 py-10">
-        <NavGroup title="customers" links={customers_links} />
-        <NavGroup title="businesses" links={businesses_links} />
-        <NavGroup title="settings" links={settings_links} />
-        <div className="mb-[100px] flex flex-col gap-y-8 w-full px-8">
-          <div className="flex flex-row gap-x-2 items-center cursor-pointer">
-            <Image
-              src={"/logout-icon.png"}
-              alt="logout icon"
-              height={16}
-              width={16}
-            />
-            <span className="text-base capitalize hover:text-red-600 transition-all duration-300">
-              logout
-            </span>
-          </div>
-          <span className="text-xs">v1.2.0</span>
+    <nav className="w-[283px] hidden lg:flex flex-col gap-y-5 py-10">
+      <NavGroup title="customers" links={customers_links} />
+      <NavGroup title="businesses" links={businesses_links} />
+      <NavGroup title="settings" links={settings_links} />
+      <div className="mb-[100px] flex flex-col gap-y-8 w-full px-8">
+        <div className="flex flex-row gap-x-2 items-center cursor-pointer">
+          <Image
+            src={"/logout-icon.png"}
+            alt="logout icon"
+            height={16}
+            width={16}
+          />
+          <span className="text-base capitalize hover:text-red-600 transition-all duration-300">
+            logout
+          </span>
         </div>
-      </nav>
-    </>
+        <span className="text-xs">v1.2.0</span>
+      </div>
+    </nav>
   );
 };
 

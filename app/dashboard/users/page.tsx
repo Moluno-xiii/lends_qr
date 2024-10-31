@@ -31,7 +31,7 @@ const Page: React.FC = async () => {
       <div className="flex w-full gap-y-10 flex-col max-w-[1040px] mx-auto">
         <span className=" font-medium text-2xl text-secondary">Users</span>
         <DataCardComponent />
-        <Suspense fallback={<Spinner />}>
+        <Suspense fallback={<Spinner message="loading users data" />}>
           <UsersData />
         </Suspense>
       </div>

@@ -111,7 +111,6 @@ const guarantor = [
 const Page: React.FC = ({}) => {
   return (
     <div className="mt-8 bg-white rounded-md shadow-sm px-8 py-5">
-      <section></section>
       <UserDataSection
         data={personal_information}
         title="personal information"

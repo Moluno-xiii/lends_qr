@@ -1,22 +1,24 @@
 "use client";
+
 interface Props {
-  reset: () => void;
+  reset?: () => void;
   error: Error;
 }
 
-// export default function : React.FC Error({error, reset}) {
 const Error: React.FC<Props> = ({ error, reset }) => {
-  console.log(error);
   return (
-    <main className="flex justify-center items-center flex-col gap-6">
-      <h1 className="text-3xl font-semibold">Something went wrong!</h1>
-      <p className="text-lg">{error.message}</p>
+    <main className="flex h-dvh justify-center items-center flex-col gap-6">
+      <h1 className="text-3xl font-semibold text-error">
+        Something went wrong!
+      </h1>
+      <p className="text-lg text-error uppercase">{error.message}</p>
 
       <button
-        onClick={reset}
-        className="inline-block bg-accent-500 text-primary-800 px-6 py-3 text-lg"
+        onClick={reset ? reset : () => window.location.reload()}
+        // onClick={reset ? reset : () => router.refresh()}
+        className="inline-block bg-primary text-white px-6 py-3 text-lg"
       >
-        Try again
+        Reload
       </button>
     </main>
   );

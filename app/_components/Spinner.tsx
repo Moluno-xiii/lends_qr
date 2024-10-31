@@ -4,10 +4,12 @@ interface Props {
 
 const Spinner: React.FC<Props> = ({ message }) => {
   return (
-    <>
+    <div className="flex flex-col justify-center items-center gap-y-4">
       <div className="spinner"></div>
-      <p className="flex justify-center text-2xl">{message ? message : null}</p>
-    </>
+      <p className="flex justify-center text-secondary uppercase text-base md:text-2xl">
+        {message ? message + "..." : null}
+      </p>
+    </div>
   );
 };
 

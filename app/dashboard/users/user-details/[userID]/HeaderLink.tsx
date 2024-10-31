@@ -12,7 +12,7 @@ const HeaderLink: React.FC<Props> = ({ link }) => {
   const isActive = pathName.includes(link.route);
   return (
     <li
-      className={`capitalize pb-2  text-black text-opacity-80 hover:border-b-2 transition-all duration-300 hover:border-primary hover:text-primary ${
+      className={`capitalize pb-2 text-xs md:text-base  text-black text-opacity-80 hover:border-b-2 transition-all duration-300 hover:border-primary hover:text-primary ${
         isActive && "border-b-[3px] border-primary text-primary"
       }`}
     >

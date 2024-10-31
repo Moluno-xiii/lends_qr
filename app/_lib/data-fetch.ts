@@ -4,7 +4,7 @@ async function getUsersData(page = 1, limit = 10) {
     const response = await fetch(
       `https://retoolapi.dev/pmCQ7k/usersdata?_page=${page}&_limit=${limit}`,
       {
-        cache: "force-cache",
+        cache: "no-cache",
       }
     );
     const data = await response.json();

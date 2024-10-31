@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const Header: React.FC = ({}) => {
   return (
-    <div className="bg-white sticky top-0 h-[100px] shadow-md flex flex-row justify-between items-center gap-x-10 px-8 z-10">
+    <div className="bg-white sticky top-0 h-[100px] shadow-md hidden sm:flex flex-row justify-between flex-shrink-0 items-center gap-x-10 px-8 z-10">
       <Image
         src="/logo-group.svg"
         height={30}
@@ -15,7 +15,7 @@ const Header: React.FC = ({}) => {
 
       <SearchBar />
 
-      <div className="flex gap-x-10 flex-row justify-center items-center">
+      <div className="flex gap-x-5 lg:gap-x-10 flex-row justify-center items-center">
         <Link href={"#"} className="text-secondary underline">
           Docs
         </Link>

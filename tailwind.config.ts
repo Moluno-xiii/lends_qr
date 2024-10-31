@@ -14,6 +14,9 @@ const config: Config = {
         "text-primary": "#545F7D ",
         error: "#E4033B",
       },
+      screens: {
+        "2.5xl": "1350px",
+      },
     },
   },
   plugins: [],

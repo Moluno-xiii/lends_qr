@@ -31,7 +31,7 @@ const usersData: UsersDataProps[] = [
 const DataCardComponent: React.FC = ({}) => {
   return (
     <div className="flex flex-col gap-y-8 items-center justify-center">
-      <ul className="grid grid-cols-1 gap-12 sm:grid-cols-2 xl:grid-cols-4">
+      <ul className="grid grid-cols-1 gap-12 sm:grid-cols-2 md:grid-cols-3 2.5xl:grid-cols-4">
         {usersData.map((data, index) => (
           <DataCard data={data} key={index} />
         ))}
