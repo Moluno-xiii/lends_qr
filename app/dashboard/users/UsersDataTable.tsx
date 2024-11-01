@@ -3,6 +3,7 @@ import Image from "next/image";
 import { TableDataProps } from "./page";
 import UserDataRow from "./UserDataRow";
 import { useState } from "react";
+import Pagination from "@/app/_components/Pagination";
 
 const dataTableTitles = [
   { title: "organization" },
@@ -14,10 +15,11 @@ const dataTableTitles = [
 ];
 
 interface Props {
-  tableData: TableDataProps[];
+  tableData: TableDataProps[] | null;
+  numUsers: number;
 }
 
-const UsersDataTable: React.FC<Props> = ({ tableData }) => {
+const UsersDataTable: React.FC<Props> = ({ tableData, numUsers }) => {
   const [activeModalIndex, setActiveModalIndex] = useState<number>(-1);
 
   return (
@@ -43,7 +45,7 @@ const UsersDataTable: React.FC<Props> = ({ tableData }) => {
             ))}
           </ul>
           <div className="flex flex-col">
-            {tableData.map((data, index) => (
+            {tableData?.map((data, index) => (
               <UserDataRow
                 key={index}
                 activeModalIndex={activeModalIndex}
@@ -58,23 +60,7 @@ const UsersDataTable: React.FC<Props> = ({ tableData }) => {
 
       <div className="flex justify-between items-center w-full mt-4 text-xs md:text-sm capitalize">
         <span className="">Showing 100 out of 100</span>
-        <div className="cursor-pointer gap-x-3 flex flex-row items-center">
-          <button className="capitalize bg-primary px-2 py-1 rounded-sm text-white">
-            prev
-          </button>
-          <span>1</span>
-          <span>2</span>
-          <span>3</span>
-          <button className="capitalize bg-primary px-2 py-1 rounded-sm text-white">
-            next
-          </button>
-        </div>
-        {/* <Image
-          src={"/pagination-image.png"}
-          height={24}
-          width={262}
-          alt="pagination image"
-        /> */}
+        <Pagination numUsers={numUsers} />
       </div>
     </>
   );

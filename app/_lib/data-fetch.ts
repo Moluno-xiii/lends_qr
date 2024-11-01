@@ -15,6 +15,18 @@ async function getUsersData(page = 1, limit = 10) {
     throw error;
   }
 }
+async function getAllUsersData() {
+  try {
+    const response = await fetch(`https://retoolapi.dev/pmCQ7k/usersdata`, {
+      cache: "force-cache",
+    });
+    const data = await response.json();
+    return data;
+  } catch (error: any) {
+    console.log(error.message);
+    throw error;
+  }
+}
 async function getUsersOverallData(page = 1, limit = 10) {
   try {
     const response = await fetch(
@@ -33,4 +45,4 @@ async function getUsersOverallData(page = 1, limit = 10) {
   }
 }
 
-export { getUsersData, getUsersOverallData };
+export { getUsersData, getUsersOverallData, getAllUsersData };

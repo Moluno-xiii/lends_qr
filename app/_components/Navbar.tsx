@@ -5,7 +5,7 @@ const customers_links = [
   {
     name: "Users",
     image_url: "/user-friends-icon.png",
-    route: "/dashboard/users",
+    route: "/dashboard/users?page=1",
   },
   {
     name: "Guarantors",

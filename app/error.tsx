@@ -1,11 +1,14 @@
 "use client";
 
+// import { useRouter } from "next/navigation";
+
 interface Props {
   reset?: () => void;
   error: Error;
 }
 
 const Error: React.FC<Props> = ({ error, reset }) => {
+  // const router = useRouter();
   return (
     <main className="flex h-dvh justify-center items-center flex-col gap-6">
       <h1 className="text-3xl font-semibold text-error">

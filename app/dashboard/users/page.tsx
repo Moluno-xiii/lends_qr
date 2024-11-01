@@ -1,9 +1,8 @@
-import UsersData from "./UsersData";
-import { Suspense } from "react";
-import Spinner from "@/app/_components/Spinner";
+import { getAllUsersData } from "@/app/_lib/data-fetch";
 import DataCardComponent from "./DataCardComponent";
+import UsersData from "./UsersData";
 export const metadata = {
-  title: "User",
+  title: "Users",
 };
 
 export interface TableDataPropss {
@@ -26,14 +25,14 @@ export interface TableDataProps {
 }
 
 const Page: React.FC = async () => {
+  const data = await getAllUsersData();
+  const numberOfUsers = data.length / 10;
   return (
     <div className="flex flex-col p-8 min-h-dvh pb-40">
       <div className="flex w-full gap-y-10 flex-col max-w-[1040px] mx-auto">
         <span className=" font-medium text-2xl text-secondary">Users</span>
         <DataCardComponent />
-        <Suspense fallback={<Spinner message="loading users data" />}>
-          <UsersData />
-        </Suspense>
+        <UsersData numUsers={numberOfUsers} />
       </div>
     </div>
   );
