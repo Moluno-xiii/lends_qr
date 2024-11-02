@@ -1,6 +1,6 @@
 import localFont from "next/font/local";
-import LoginForm from "./LoginForm";
-import LoginImageSection from "./LoginImageSection";
+import LoginForm from "../_components/login/LoginForm";
+import LoginImageSection from "../_components/login/LoginImageSection";
 
 const avenir_Next = localFont({
   src: [

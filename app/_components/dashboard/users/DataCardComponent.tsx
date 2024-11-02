@@ -1,4 +1,4 @@
-import DataCard from "@/app/_components/DataCard";
+import DataCard from "@/app/_components/utilities/DataCard";
 
 export interface UsersDataProps {
   name: string;

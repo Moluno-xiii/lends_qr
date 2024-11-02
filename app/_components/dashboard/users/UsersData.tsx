@@ -1,25 +1,29 @@
 "use client";
 import { getUsersData } from "@/app/_lib/data-fetch";
 import UsersDataTable from "./UsersDataTable";
-import { useSearchParams } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
-import Spinner from "@/app/_components/Spinner";
+import Spinner from "@/app/_components/utilities/Spinner";
 
 const UsersData = ({ numUsers }: { numUsers: number }) => {
   const searchParams = useSearchParams();
   const [tableData, setTableData] = useState(null);
   const [loading, setLoading] = useState(true);
-
+  const router = useRouter();
+  const pathName = usePathname();
   useEffect(() => {
-    const fetchData = async () => {
-      setLoading(true);
-      const page = searchParams.get("page") || "1";
-      const data = await getUsersData(Number(page));
-      setTableData(data);
-      setLoading(false);
-    };
-
-    fetchData();
+    const page = searchParams.get("page");
+    if (!page) {
+      router.replace(`${pathName}?page=1`);
+    } else {
+      const fetchData = async () => {
+        setLoading(true);
+        const data = await getUsersData(Number(page));
+        setTableData(data);
+        setLoading(false);
+      };
+      fetchData();
+    }
   }, [searchParams]);
 
   return (

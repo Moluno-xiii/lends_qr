@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { TableDataProps } from "./page";
+import { TableDataProps } from "../../../dashboard/users/page";
 import { useState } from "react";
 import UsersTableModal from "./UsersTableModal";
 

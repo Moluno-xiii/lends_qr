@@ -1,6 +1,6 @@
 import { getAllUsersData } from "@/app/_lib/data-fetch";
-import DataCardComponent from "./DataCardComponent";
-import UsersData from "./UsersData";
+import DataCardComponent from "../../_components/dashboard/users/DataCardComponent";
+import UsersData from "../../_components/dashboard/users/UsersData";
 export const metadata = {
   title: "Users",
 };

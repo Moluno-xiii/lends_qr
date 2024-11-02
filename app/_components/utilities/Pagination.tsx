@@ -20,14 +20,22 @@ const Pagination = ({ numUsers }: { numUsers: number }) => {
   };
   return (
     <div className="cursor-pointer gap-x-3 flex flex-row items-center">
-      <button
-        onClick={() => handleSearch(String(currentPage - 1))}
-        className="capitalize bg-primary px-2 py-1 rounded-sm text-white"
-      >
-        prev
-      </button>
-      <span onClick={() => handleSearch("1")}>1</span>
+      {currentPage > 1 && (
+        <button
+          onClick={() => handleSearch(String(currentPage - 1))}
+          className="capitalize bg-primary px-2 py-1 rounded-sm text-white"
+        >
+          prev
+        </button>
+      )}
       <span
+        className="hover:underline transition-all duration-300 hover:text-primary"
+        onClick={() => handleSearch("1")}
+      >
+        1
+      </span>
+      <span
+        className="hover:underline transition-all duration-300 hover:text-primary"
         onClick={() =>
           handleSearch(currentPage > 3 ? String(currentPage - 2) : "2")
         }
@@ -35,6 +43,7 @@ const Pagination = ({ numUsers }: { numUsers: number }) => {
         {currentPage > 3 ? currentPage - 2 : 2}
       </span>
       <span
+        className="hover:underline transition-all duration-300 hover:text-primary"
         onClick={() =>
           handleSearch(currentPage >= 4 ? String(currentPage - 1) : "3")
         }
@@ -43,13 +52,21 @@ const Pagination = ({ numUsers }: { numUsers: number }) => {
         {currentPage > 3 ? currentPage - 1 : 3}
       </span>
       ...
-      <span onClick={() => handleSearch(String(numUsers))}>{numUsers}</span>
-      <button
-        onClick={() => handleSearch(String(currentPage + 1))}
-        className="capitalize bg-primary px-2 py-1 rounded-sm text-white"
+      <span
+        className="hover:underline transition-all duration-300 hover:text-primary"
+        onClick={() => handleSearch(String(numUsers))}
       >
-        next
-      </button>
+        {numUsers}
+      </span>
+      {numUsers > currentPage && (
+        <button
+          onClick={() => handleSearch(String(currentPage + 1))}
+          className="capitalize bg-primary px-2 py-1 rounded-sm text-white"
+        >
+          next
+        </button>
+      )}
+      <span className="">page {currentPage}</span>
     </div>
   );
 };

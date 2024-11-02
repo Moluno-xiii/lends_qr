@@ -45,4 +45,21 @@ async function getUsersOverallData(page = 1, limit = 10) {
   }
 }
 
-export { getUsersData, getUsersOverallData, getAllUsersData };
+async function getUserData(id: number) {
+  try {
+    const response = await fetch(
+      // `https://retoolapi.dev/pmCQ7k/usersdata/11`,
+      `https://retoolapi.dev/pmCQ7k/usersdata/${id}`,
+      {
+        cache: "no-cache",
+      }
+    );
+    const data = await response.json();
+    return data;
+  } catch (error: any) {
+    console.log(error.message);
+    throw error;
+  }
+}
+
+export { getUsersData, getUsersOverallData, getAllUsersData, getUserData };

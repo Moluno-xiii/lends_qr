@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Work_Sans } from "next/font/google";
-import Navbar from "../_components/Navbar";
-import Header from "../_components/Header";
+import Header from "../_components/utilities/Header";
+import NavProvider from "../_contexts/NavContext";
+import NavComponent from "../_components/utilities/NavComponent";
 
 const workSans = Work_Sans({
   display: "swap",
@@ -24,15 +25,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${workSans.className} min-h-dvh w-dvw overflow-hidden`}>
-        <Header />
-        <div className="grid lg:grid-cols-[290px_1fr] h-screen">
-          <div className="hidden lg:flex overflow-y-auto h-full">
-            <Navbar />
+        <NavProvider>
+          <Header />
+          <div className="flex lg:grid-cols-[290px_1fr] h-screen">
+            <div className="overflow-y-auto">
+              <NavComponent />
+            </div>
+            <div className="overflow-y-auto overflow-x-auto bg-[#f7f7f7]">
+              {children}
+            </div>
           </div>
-          <div className="overflow-y-auto overflow-x-auto bg-[#f7f7f7]">
-            {children}
-          </div>
-        </div>
+        </NavProvider>
       </body>
     </html>
   );

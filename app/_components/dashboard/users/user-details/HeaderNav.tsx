@@ -1,5 +1,5 @@
 "use client";
-import NavigateBack from "@/app/_components/NavigateBack";
+import NavigateBack from "@/app/_components/utilities/NavigateBack";
 import UsersDetailsHeader from "./UsersDetailsHeader";
 import { useState } from "react";
 import LinksModal from "./LinksModal";

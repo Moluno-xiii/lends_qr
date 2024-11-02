@@ -1,4 +1,4 @@
-import UserDataSection from "./UserDataSection";
+import UserDataSection from "../../../../../_components/dashboard/users/user-details/UserDataSection";
 
 export const metadata = {
   title: "General Details",
@@ -108,7 +108,8 @@ const guarantor = [
     value: "Sister",
   },
 ];
-const Page: React.FC = ({}) => {
+
+const Page: React.FC = async ({}) => {
   return (
     <div className="mt-8 bg-white rounded-md shadow-sm px-8 py-5">
       <UserDataSection

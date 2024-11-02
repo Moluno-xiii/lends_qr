@@ -1,4 +1,5 @@
 "use client";
+import { useNavContext } from "@/app/_contexts/NavContext";
 import { Link as LinkProps } from "./NavGroup";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
@@ -8,9 +9,15 @@ interface Props {
 }
 
 const NavigationLink: React.FC<Props> = ({ link }) => {
+  const { onCloseNav } = useNavContext();
   const pathName = usePathname();
   const router = useRouter();
   const isActive = pathName.includes(link.route);
+
+  const handleRoute = () => {
+    router.replace(link.route);
+    onCloseNav();
+  };
   return (
     <li
       className={`flex items-center text-base w-full px-8 flex-row h-10 hover:bg-primary cursor-pointer transition-all duration-300 hover:bg-opacity-[6%] border-primary ${
@@ -18,7 +25,7 @@ const NavigationLink: React.FC<Props> = ({ link }) => {
           ? "border-l-[4px] text-secondary  bg-primary bg-opacity-[6%]"
           : "text-text-primary"
       } gap-x-4`}
-      onClick={() => router.replace(link.route)}
+      onClick={handleRoute}
     >
       <Image
         src={link.image_url}

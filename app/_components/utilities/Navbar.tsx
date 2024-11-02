@@ -1,11 +1,14 @@
-import Image from "next/image";
+"use client";
+
 import NavGroup from "./NavGroup";
+import LogoutSection from "./LogoutSection";
+import { useNavContext } from "@/app/_contexts/NavContext";
 
 const customers_links = [
   {
     name: "Users",
     image_url: "/user-friends-icon.png",
-    route: "/dashboard/users?page=1",
+    route: "/dashboard/users",
   },
   {
     name: "Guarantors",
@@ -109,28 +112,33 @@ const settings_links = [
   },
 ];
 
-const Navbar: React.FC = ({}) => {
+const NavbarLarge: React.FC = ({}) => {
   return (
     <nav className="w-[283px] hidden lg:flex flex-col gap-y-5 py-10">
       <NavGroup title="customers" links={customers_links} />
       <NavGroup title="businesses" links={businesses_links} />
       <NavGroup title="settings" links={settings_links} />
-      <div className="mb-[100px] flex flex-col gap-y-8 w-full px-8">
-        <div className="flex flex-row gap-x-2 items-center cursor-pointer">
-          <Image
-            src={"/logout-icon.png"}
-            alt="logout icon"
-            height={16}
-            width={16}
-          />
-          <span className="text-base capitalize hover:text-red-600 transition-all duration-300">
-            logout
-          </span>
-        </div>
-        <span className="text-xs">v1.2.0</span>
-      </div>
+      <LogoutSection />
     </nav>
   );
 };
 
-export default Navbar;
+const NavbarMini: React.FC = ({}) => {
+  const { onCloseNav } = useNavContext();
+  return (
+    <nav className="flex w-dvw fixed top-0 bottom-0 shadow-md bg-[#f2f2f2] z-30 overflow-y-auto sm:w-60 lg:hidden flex-col gap-y-5 py-10 ">
+      <button
+        className="bg-primary w-1/2 self-end p-3 uppercase text-[#f2f2f2]"
+        onClick={onCloseNav}
+      >
+        close nav
+      </button>
+      <NavGroup title="customers" links={customers_links} />
+      <NavGroup title="businesses" links={businesses_links} />
+      <NavGroup title="settings" links={settings_links} />
+      <LogoutSection />
+    </nav>
+  );
+};
+
+export { NavbarLarge, NavbarMini };

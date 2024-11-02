@@ -1,9 +1,9 @@
 "use client";
 import Image from "next/image";
-import { TableDataProps } from "./page";
+import { TableDataProps } from "../../../dashboard/users/page";
 import UserDataRow from "./UserDataRow";
 import { useState } from "react";
-import Pagination from "@/app/_components/Pagination";
+import Pagination from "@/app/_components/utilities/Pagination";
 
 const dataTableTitles = [
   { title: "organization" },

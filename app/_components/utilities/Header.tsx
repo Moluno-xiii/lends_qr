@@ -1,10 +1,12 @@
+"use client";
 import Image from "next/image";
 import SearchBar from "./SearchBar";
 import Link from "next/link";
+import Hamburger from "./Hamburger";
 
 const Header: React.FC = ({}) => {
   return (
-    <div className="bg-white sticky top-0 h-[100px] shadow-md hidden sm:flex flex-row justify-between flex-shrink-0 items-center gap-x-10 px-8 z-10">
+    <div className="bg-white sticky top-0 h-[100px] shadow-md flex flex-row justify-between flex-shrink items-center gap-x-10 px-8 z-10 mb-0">
       <Image
         src="/logo-group.svg"
         height={30}
@@ -12,11 +14,9 @@ const Header: React.FC = ({}) => {
         alt="lendsqr logo"
         className=""
       />
-
       <SearchBar />
-
       <div className="flex gap-x-5 lg:gap-x-10 flex-row justify-center items-center">
-        <Link href={"#"} className="text-secondary underline">
+        <Link href={"#"} className="text-secondary hidden sm:flex  underline">
           Docs
         </Link>
         <Image
@@ -24,8 +24,9 @@ const Header: React.FC = ({}) => {
           height={26}
           width={26}
           alt="Notification bell"
+          className="hidden sm:flex "
         />
-        <div className="flex flex-row justify-center items-center gap-x-2">
+        <div className="hidden sm:flex flex-row justify-center items-center gap-x-2">
           <Image
             src={"/user-avatar.png"}
             height={60}
@@ -42,6 +43,7 @@ const Header: React.FC = ({}) => {
             className=""
           />
         </div>
+        <Hamburger />
       </div>
     </div>
   );

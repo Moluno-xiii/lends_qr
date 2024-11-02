@@ -1,5 +1,5 @@
+import HeaderNav from "@/app/_components/dashboard/users/user-details/HeaderNav";
 import type { Metadata } from "next";
-import HeaderNav from "./HeaderNav";
 
 export const metadata: Metadata = {
   title: {

@@ -1,4 +1,4 @@
-import { DataProp } from "./page";
+import { DataProp } from "../../../../dashboard/users/user-details/[userID]/general-details/page";
 
 interface Props {
   data: DataProp[];
