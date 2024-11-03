@@ -1,11 +1,18 @@
 "use client";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 const LoginForm: React.FC = ({}) => {
   const [showPassword, setShowPassword] = useState(false);
+  const router = useRouter();
   function toggleShowPassword() {
     setShowPassword((password) => !password);
+  }
+
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    router.push("/");
   }
   return (
     <div className="bg-white flex-1 flex justify-center items-center flex-col gap-y-3 px-4 max-md:py-10">
@@ -24,7 +31,11 @@ const LoginForm: React.FC = ({}) => {
           </span>
         </div>
 
-        <form action="" className="flex flex-col gap-y-4 mt-10">
+        <form
+          action=""
+          onSubmit={handleSubmit}
+          className="flex flex-col gap-y-4 mt-10"
+        >
           <input
             type="text"
             className="rounded-sm border border-text-primary border-opacity-15 h-[50px] mb-3 w-full sm:w-[440px] px-5"

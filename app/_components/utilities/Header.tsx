@@ -3,8 +3,10 @@ import Image from "next/image";
 import SearchBar from "./SearchBar";
 import Link from "next/link";
 import Hamburger from "./Hamburger";
+import { useRouter } from "next/navigation";
 
 const Header: React.FC = ({}) => {
+  const router = useRouter();
   return (
     <div className="bg-white sticky top-0 h-[100px] shadow-md flex flex-row justify-between flex-shrink items-center gap-x-10 px-8 z-10 mb-0">
       <Image
@@ -13,6 +15,7 @@ const Header: React.FC = ({}) => {
         width={175}
         alt="lendsqr logo"
         className=""
+        onClick={() => router.push("/")}
       />
       <SearchBar />
       <div className="flex gap-x-5 lg:gap-x-10 flex-row justify-center items-center">

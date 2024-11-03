@@ -48,7 +48,6 @@ async function getUsersOverallData(page = 1, limit = 10) {
 async function getUserData(id: number) {
   try {
     const response = await fetch(
-      // `https://retoolapi.dev/pmCQ7k/usersdata/11`,
       `https://retoolapi.dev/pmCQ7k/usersdata/${id}`,
       {
         cache: "no-cache",
@@ -62,4 +61,54 @@ async function getUserData(id: number) {
   }
 }
 
-export { getUsersData, getUsersOverallData, getAllUsersData, getUserData };
+function getUserInformation() {
+  const storedInformation = localStorage.getItem("userInfo");
+
+  if (!storedInformation) {
+    const userInfo = {
+      personalInformation: {
+        name: "Grace Effiom",
+        netWorth: 200000,
+        phoneNumber: "07060780922",
+        bvn: "1234567890",
+        email: "grace@gmail.com",
+        gender: "female",
+        maritalStatus: "Single",
+        children: "none",
+        typeOfResidence: "Parent's Apartment",
+      },
+      bankDetails: {
+        bankName: "Providus Bank",
+        accountNumber: "9912345678",
+      },
+      employmentInfo: {
+        levelOfEducation: "B.Sc",
+        status: "Employed",
+        sectorOfEmployment: "Fintech",
+        employmentDuration: "2 years",
+        officeEmail: "grace@lendsqr.com",
+        monthlyIncome: "₦200,000.00- ₦400,000.00",
+        loanRepayment: 40000,
+      },
+      socialMediaInfo: {
+        twitter: "@grace_effiom",
+        facebook: "Grace Effiom",
+        instagram: "@grace_effiom",
+      },
+      guarantorInfo: {
+        name: "Debby Ogana",
+        phoneNumber: "07060780922",
+        email: "debby@gmail.com",
+        relationship: "Sister",
+      },
+    };
+    localStorage.setItem("userInfo", JSON.stringify(userInfo));
+  }
+}
+export {
+  getUsersData,
+  getUsersOverallData,
+  getAllUsersData,
+  getUserData,
+  getUserInformation,
+};

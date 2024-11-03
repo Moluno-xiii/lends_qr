@@ -1,6 +1,6 @@
 "use client";
 import { usePathname, useRouter } from "next/navigation";
-import { links } from "./UsersDetailsHeader";
+import { links } from "./SubLinks";
 
 interface Props {
   handleToggleModal: () => void;

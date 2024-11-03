@@ -1,9 +1,10 @@
 "use client";
 import Image from "next/image";
-import { TableDataProps } from "../../../dashboard/users/page";
 import UserDataRow from "./UserDataRow";
 import { useState } from "react";
 import Pagination from "@/app/_components/utilities/Pagination";
+import { TableDataProps } from "@/app/types";
+import { useSearchParams } from "next/navigation";
 
 const dataTableTitles = [
   { title: "organization" },
@@ -21,6 +22,8 @@ interface Props {
 
 const UsersDataTable: React.FC<Props> = ({ tableData, numUsers }) => {
   const [activeModalIndex, setActiveModalIndex] = useState<number>(-1);
+  const searchParams = useSearchParams();
+  const currentPage = Number(searchParams.get("page"));
 
   return (
     <>
@@ -59,7 +62,9 @@ const UsersDataTable: React.FC<Props> = ({ tableData, numUsers }) => {
       </div>
 
       <div className="flex justify-between items-center w-full mt-4 text-xs md:text-sm capitalize">
-        <span className="">Showing 100 out of 100</span>
+        <span className="">
+          Showing {(numUsers / 5) * currentPage} out of {numUsers}
+        </span>
         <Pagination numUsers={numUsers} />
       </div>
     </>

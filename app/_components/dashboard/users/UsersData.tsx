@@ -36,5 +36,4 @@ const UsersData = ({ numUsers }: { numUsers: number }) => {
     </div>
   );
 };
-// eshegware
 export default UsersData;

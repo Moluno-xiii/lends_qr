@@ -1,17 +1,17 @@
 "use client";
 import Image from "next/image";
-import { TableDataProps } from "../../../dashboard/users/page";
 import { useState } from "react";
 import UsersTableModal from "./UsersTableModal";
+import { TableDataProps } from "@/app/types";
 
-interface Props {
+interface UserDataRowProps {
   data: TableDataProps;
   index: number;
   activeModalIndex: number;
   setActiveModalIndex: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const UserDataRow: React.FC<Props> = ({
+const UserDataRow: React.FC<UserDataRowProps> = ({
   data,
   index,
   activeModalIndex,

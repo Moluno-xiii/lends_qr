@@ -1,10 +1,5 @@
 import DataCard from "@/app/_components/utilities/DataCard";
-
-export interface UsersDataProps {
-  name: string;
-  value: number;
-  icon: string;
-}
+import { UsersDataProps } from "@/app/types";
 
 const usersData: UsersDataProps[] = [
   {

@@ -31,7 +31,7 @@ export default function RootLayout({
             <div className="overflow-y-auto">
               <NavComponent />
             </div>
-            <div className="overflow-y-auto overflow-x-auto bg-[#f7f7f7]">
+            <div className="overflow-y-auto overflow-x-auto bg-[#f7f7f7] h-dvh max-w-[1040px] mx-auto">
               {children}
             </div>
           </div>

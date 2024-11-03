@@ -6,7 +6,7 @@ const Pagination = ({ numUsers }: { numUsers: number }) => {
   const searchParams = useSearchParams();
   const router = useRouter();
   const pathName = usePathname();
-
+  const numberOfUsers = numUsers / 5;
   const currentPage = Number(searchParams.get("page"));
   console.log(currentPage);
   console.log(searchParams);
@@ -54,11 +54,11 @@ const Pagination = ({ numUsers }: { numUsers: number }) => {
       ...
       <span
         className="hover:underline transition-all duration-300 hover:text-primary"
-        onClick={() => handleSearch(String(numUsers))}
+        onClick={() => handleSearch(String(numberOfUsers))}
       >
-        {numUsers}
+        {numUsers / 10}
       </span>
-      {numUsers > currentPage && (
+      {numberOfUsers > currentPage && (
         <button
           onClick={() => handleSearch(String(currentPage + 1))}
           className="capitalize bg-primary px-2 py-1 rounded-sm text-white"
