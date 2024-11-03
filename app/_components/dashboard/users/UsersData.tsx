@@ -1,9 +1,10 @@
 "use client";
-import { getUsersData } from "@/app/_lib/data-fetch";
+import { getUserInformation, getUsersData } from "@/app/_lib/data-fetch";
 import UsersDataTable from "./UsersDataTable";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import Spinner from "@/app/_components/utilities/Spinner";
+import { UserInfo } from "@/app/types";
 
 const UsersData = ({ numUsers }: { numUsers: number }) => {
   const searchParams = useSearchParams();
@@ -11,6 +12,20 @@ const UsersData = ({ numUsers }: { numUsers: number }) => {
   const [loading, setLoading] = useState(true);
   const router = useRouter();
   const pathName = usePathname();
+
+  const [userInformation, setUserInformation] = useState<UserInfo | null>(null);
+
+  useEffect(() => {
+    getUserInformation();
+    const storedInfo = localStorage.getItem("userInfo");
+    if (storedInfo) {
+      setUserInformation(JSON.parse(storedInfo));
+    }
+  }, []);
+
+  useEffect(() => {
+    console.log(userInformation);
+  }, [userInformation]);
   useEffect(() => {
     const page = searchParams.get("page");
     if (!page) {

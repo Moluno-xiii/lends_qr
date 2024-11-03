@@ -6,8 +6,8 @@ import BankDetails from "./BankDetails";
 const UsersDetailsHeader: React.FC = ({}) => {
   const localStorageData = localStorage.getItem("userInfo");
   const userInfo = localStorageData ? JSON.parse(localStorageData) : null;
-  const { name, netWorth } = userInfo.personalInformation;
-  const { bankName, accountNumber } = userInfo.bankDetails;
+  const { name, netWorth } = userInfo?.personalInformation;
+  const { bankName, accountNumber } = userInfo?.bankDetails;
   return (
     <div className="flex-col flex w-full px-8 pt-5 bg-white rounded-md shadow-sm gap-y-2 h-[210px]">
       <div className="grid grid-cols-2 sm:grid-cols-4 flex-1 items-center gap-x-2">

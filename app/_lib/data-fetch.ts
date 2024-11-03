@@ -11,7 +11,6 @@ async function getUsersData(page = 1, limit = 10) {
     // await new Promise((res) => setTimeout(res, 5000));
     return data;
   } catch (error: any) {
-    console.log(error.message);
     throw error;
   }
 }
@@ -23,7 +22,6 @@ async function getAllUsersData() {
     const data = await response.json();
     return data;
   } catch (error: any) {
-    console.log(error.message);
     throw error;
   }
 }
@@ -37,10 +35,8 @@ async function getUsersOverallData(page = 1, limit = 10) {
     );
     const data = await response.json();
     await new Promise((res) => setTimeout(res, 2000));
-    console.log(data);
     return data;
   } catch (error: any) {
-    console.log(error.message);
     throw error;
   }
 }

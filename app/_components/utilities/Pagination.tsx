@@ -8,8 +8,6 @@ const Pagination = ({ numUsers }: { numUsers: number }) => {
   const pathName = usePathname();
   const numberOfUsers = numUsers / 5;
   const currentPage = Number(searchParams.get("page"));
-  console.log(currentPage);
-  console.log(searchParams);
 
   const handleSearch = (value: string) => {
     const params = new URLSearchParams(String(searchParams));

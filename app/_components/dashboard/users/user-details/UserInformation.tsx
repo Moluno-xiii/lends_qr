@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
-import { getUserInformation } from "@/app/_lib/data-fetch";
+// import { getUserInformation } from "@/app/_lib/data-fetch";
 import { useEffect, useState } from "react";
 import { UserInfo } from "@/app/types";
 import PersonalInformation from "./PersonalInformation";
@@ -13,7 +13,7 @@ const UserInformation: React.FC = ({}) => {
   const [userInformation, setUserInformation] = useState<UserInfo | null>(null);
 
   useEffect(() => {
-    getUserInformation();
+    // getUserInformation();
     const storedInfo = localStorage.getItem("userInfo");
     if (storedInfo) {
       setUserInformation(JSON.parse(storedInfo));

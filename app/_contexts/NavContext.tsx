@@ -21,7 +21,6 @@ const NavProvider = ({ children }: { children: ReactNode }) => {
     setIsNavOpen(false);
   }
   function toggleNav() {
-    console.log("i got clicked");
     setIsNavOpen((nav) => !nav);
   }
 
