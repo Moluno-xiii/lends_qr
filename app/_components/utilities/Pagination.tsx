@@ -59,7 +59,7 @@ const Pagination = ({ numUsers }: { numUsers: number }) => {
       {numberOfUsers > currentPage && (
         <button
           onClick={() => handleSearch(String(currentPage + 1))}
-          className="capitalize bg-primary px-2 py-1 rounded-sm text-white"
+          className="capitalize bg-primary hover:bg-opacity-75 transition-all duration-300 px-2 py-1 rounded-sm text-white"
         >
           next
         </button>

@@ -53,7 +53,10 @@ const UserDataRow: React.FC<UserDataRowProps> = ({
       >
         {status}
       </li>
-      <li onClick={handleToggleModal} className="relative cursor-pointer">
+      <li
+        onClick={handleToggleModal}
+        className="relative cursor-pointer hover:px-2 py-2 hover:bg-slate-200 rounded-full transition-all duration-300"
+      >
         <Image
           src={"/vertical-dots.png"}
           alt="vertical dots"

@@ -1,13 +1,17 @@
+"use client";
+
 import Image from "next/image";
 import UserRating from "./UserRating";
 import SubLinks from "./SubLinks";
 import BankDetails from "./BankDetails";
+import { useUserInfoContext } from "@/app/_contexts/UserInfoContext";
 
 const UsersDetailsHeader: React.FC = ({}) => {
-  const localStorageData = localStorage.getItem("userInfo");
-  const userInfo = localStorageData ? JSON.parse(localStorageData) : null;
-  const { name, netWorth } = userInfo?.personalInformation;
-  const { bankName, accountNumber } = userInfo?.bankDetails;
+  const { userInformation } = useUserInfoContext();
+  const { name, netWorth } = userInformation?.personalInformation ?? {};
+  const bankName = userInformation?.bankDetails?.bankName ?? "";
+  const accountNumber = userInformation?.bankDetails?.accountNumber ?? "";
+
   return (
     <div className="flex-col flex w-full px-8 pt-5 bg-white rounded-md shadow-sm gap-y-2 h-[210px]">
       <div className="grid grid-cols-2 sm:grid-cols-4 flex-1 items-center gap-x-2">
@@ -27,7 +31,7 @@ const UsersDetailsHeader: React.FC = ({}) => {
         </div>
         <UserRating />
         <BankDetails
-          netWorth={netWorth}
+          netWorth={netWorth ?? 0}
           bankName={bankName}
           accountNumber={accountNumber}
         />

@@ -6,9 +6,10 @@ import { usePathname, useRouter } from "next/navigation";
 
 interface Props {
   link: LinkProps;
+  className?: string;
 }
 
-const NavigationLink: React.FC<Props> = ({ link }) => {
+const NavigationLink: React.FC<Props> = ({ link, className }) => {
   const { onCloseNav } = useNavContext();
   const pathName = usePathname();
   const router = useRouter();
@@ -21,6 +22,8 @@ const NavigationLink: React.FC<Props> = ({ link }) => {
   return (
     <li
       className={`flex items-center text-base w-full px-8 flex-row h-10 hover:bg-primary cursor-pointer transition-all duration-300 hover:bg-opacity-[6%] border-primary ${
+        className && className
+      } ${
         isActive
           ? "border-l-[4px] text-secondary  bg-primary bg-opacity-[6%]"
           : "text-text-primary"

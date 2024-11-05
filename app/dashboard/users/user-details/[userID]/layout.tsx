@@ -1,4 +1,5 @@
 import HeaderNav from "@/app/_components/dashboard/users/user-details/HeaderNav";
+import UserInfoProvider from "@/app/_contexts/UserInfoContext";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -16,8 +17,10 @@ export default function RootLayout({
 }>) {
   return (
     <div className="w-full max-w-[1040px] mx-auto p-8">
-      <HeaderNav />
-      <div className="flex flex-col pb-20">{children}</div>
+      <UserInfoProvider>
+        <HeaderNav />
+        <div className="flex flex-col pb-20">{children}</div>
+      </UserInfoProvider>
     </div>
   );
 }

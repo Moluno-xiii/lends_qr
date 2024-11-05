@@ -1,29 +1,13 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
-// import { getUserInformation } from "@/app/_lib/data-fetch";
-import { useEffect, useState } from "react";
-import { UserInfo } from "@/app/types";
-import PersonalInformation from "./PersonalInformation";
+import { useUserInfoContext } from "@/app/_contexts/UserInfoContext";
 import EmploymentInformation from "./EmploymentInformation";
-import SocialsInformation from "./SocialsInformation";
 import GuarantorInformation from "./GuarantorInformation";
+import PersonalInformation from "./PersonalInformation";
+import SocialsInformation from "./SocialsInformation";
 
 const UserInformation: React.FC = ({}) => {
-  const [userInformation, setUserInformation] = useState<UserInfo | null>(null);
-
-  useEffect(() => {
-    // getUserInformation();
-    const storedInfo = localStorage.getItem("userInfo");
-    if (storedInfo) {
-      setUserInformation(JSON.parse(storedInfo));
-    }
-  }, []);
-
-  useEffect(() => {
-    console.log(userInformation);
-  }, [userInformation]);
-
+  const { userInformation } = useUserInfoContext();
   const personalInformation = userInformation?.personalInformation;
   const employmentInformation = userInformation?.employmentInfo;
   const socialsInformation = userInformation?.socialMediaInfo;
