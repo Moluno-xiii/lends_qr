@@ -25,74 +25,74 @@ const customers_links = [
   {
     name: "Decision Models",
     image_url: "/handshake.png",
-    route: "/dashboard",
+    route: "/dashboard/decision-models",
   },
   {
     name: "Savings",
     image_url: "/piggy-bank.png",
-    route: "/dashboard",
+    route: "/dashboard/savings",
   },
   {
     name: "Loan Requests",
     image_url: "/loan-requests.png",
-    route: "/dashboard",
+    route: "/dashboard/loan-requests",
   },
   {
     name: "Whitelist",
     image_url: "/whitelist.png",
-    route: "/dashboard",
+    route: "/dashboard/whitelist",
   },
   {
     name: "Karma",
     image_url: "/karma.png",
-    route: "/dashboard",
+    route: "/dashboard/karma",
   },
 ];
 const businesses_links = [
   {
     name: "Organization",
     image_url: "/briefcase-icon.png",
-    route: "/dashboard",
+    route: "/dashboard/organization",
   },
   {
     name: "Loan Products",
     image_url: "/loan-requests.png",
-    route: "/dashboard",
+    route: "/dashboard/loan-products",
   },
   {
     name: "Savings Products",
     image_url: "/savings-products-icon.png",
-    route: "/dashboard",
+    route: "/dashboard/savings-products",
   },
   {
     name: "Fees and Charges",
     image_url: "/coins-icon.png",
-    route: "/dashboard",
+    route: "/dashboard/fees-and-charges",
   },
   {
     name: "Transactions",
     image_url: "/transactions-icon.png",
-    route: "/dashboard",
+    route: "/dashboard/transactions",
   },
   {
     name: "Services",
     image_url: "/galaxy-icon.png",
-    route: "/dashboard",
+    route: "/dashboard/services",
   },
   {
     name: "Service Account",
     image_url: "/service-account-icon.png",
-    route: "/dashboard",
+    route: "/dashboard/service-account",
   },
   {
     name: "Settlements",
     image_url: "/scroll-icon.png",
-    route: "/dashboard",
+    route: "/dashboard/settlements",
   },
   {
     name: "Reports",
     image_url: "/bar-chart-icon.png",
-    route: "/dashboard",
+    route: "/dashboard/reports",
   },
 ];
 
@@ -100,17 +100,17 @@ const settings_links = [
   {
     name: "Preferences",
     image_url: "/sliders-icon.png",
-    route: "/dashboard",
+    route: "/dashboard/preferences",
   },
   {
     name: "Fees and Pricing",
     image_url: "/fees-and-pricing-icon.png",
-    route: "/dashboard",
+    route: "/dashboard/fees-and-pricing",
   },
   {
     name: "Audit Logs",
     image_url: "/clipboard-icon.png",
-    route: "/dashboard",
+    route: "/dashboard/audit-logs",
   },
 ];
 
